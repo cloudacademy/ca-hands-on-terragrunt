@@ -3,7 +3,7 @@ dependency "vpc" {
   config_path = "../vpc"
 }
 
-dependency "vpc" {
+dependency "network" {
   config_path = "../network"
 }
 

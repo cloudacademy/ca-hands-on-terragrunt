@@ -8,8 +8,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "3.7"
     }
-    backend "s3" {}
+    
   }
+
+  backend "s3" {}
 }
 
 provider "aws" {
@@ -23,7 +25,7 @@ EOF
 remote_state {
   backend = "s3"
   config = {
-    bucket         = "ca-tf-state-2342231"
+    bucket         = "ca-tf-state-232339421"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = "us-west-2"
     encrypt        = true
