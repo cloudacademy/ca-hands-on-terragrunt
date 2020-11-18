@@ -5,10 +5,10 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    bucket         = "my-terraform-state"
+    bucket         = "ca-tf-state-2342231"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = "us-west-2"
     encrypt        = true
-    dynamodb_table = "my-lock-table"
+    dynamodb_table = "terraform-state-lock"
   }
 }

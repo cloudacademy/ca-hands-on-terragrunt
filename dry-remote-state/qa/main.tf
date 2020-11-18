@@ -11,13 +11,13 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_vpc" "example" {
+resource "aws_vpc" "qa" {
   cidr_block = "10.1.0.0/16"
 }
 
-resource "aws_subnet" "example" {
-  vpc_id     = aws_vpc.example.id
-  cidr_block = var.subnet
+resource "aws_subnet" "qa" {
+  vpc_id     = aws_vpc.qa.id
+  cidr_block = "10.1.0.0/24"
   availability_zone = "us-west-2a"
 
   tags = {
