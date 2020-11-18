@@ -25,7 +25,7 @@ EOF
 remote_state {
   backend = "s3"
   config = {
-    bucket         = "ca-tf-state-232339421"
+    bucket         = "ca-tf-state-232789721"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = "us-west-2"
     encrypt        = true

@@ -9,7 +9,7 @@ dependency "network" {
 
 # Pass data in from another dependency
 inputs = {
-  vpc_id = dependency.vpc.outputs.vpc_sg
+  vpc_sg = dependency.vpc.outputs.vpc_sg
   subnet_id = dependency.network.outputs.subnet_id
 }
 
