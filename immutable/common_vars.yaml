@@ -1,0 +1,7 @@
+environment: "Production"
+vpc_cidr: "10.0.0.0/16"
+subnet_cidr: "10.0.0.0/24"
+ region: "us-west-2"
+availability_zone: "us-west-2a"
+servername: ""
+nodes: "1"

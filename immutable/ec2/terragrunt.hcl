@@ -14,12 +14,12 @@ dependency "network" {
 
 # Pass data in from another dependency
 inputs = {
-  name = "webserver"
+  name = local.servername
   vpc_sg = dependency.vpc.outputs.vpc_sg
   subnet_id = dependency.network.outputs.subnet_id
-  num_nodes = 1
+  num_nodes = local.nodes
   tags = {
-      Environment = "Production"
+      Environment = local.environment
   }
 
 }
@@ -27,4 +27,8 @@ inputs = {
 # Include all settings from the root terragrunt.hcl file
 include {
   path = find_in_parent_folders()
+}
+
+locals {
+  common_vars = yamldecode(file(find_in_parent_folders("common_vars.yaml")))
 }

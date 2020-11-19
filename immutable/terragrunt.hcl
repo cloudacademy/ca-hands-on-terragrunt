@@ -15,7 +15,7 @@ terraform {
 }
 
 provider "aws" {
-  region              = "us-west-2"
+  region              = local.region
 }
 EOF
 }
@@ -31,4 +31,8 @@ remote_state {
     encrypt        = true
     dynamodb_table = "terraform-state-lock"
   }
+}
+
+locals {
+  common_vars = yamldecode(file("common_vars.yaml"))
 }
