@@ -1,3 +1,4 @@
+# Generate provider configuration for all child directories
 generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite"
@@ -8,12 +9,9 @@ terraform {
       source  = "hashicorp/aws"
       version = "3.7"
     }
-    
   }
-
   backend "s3" {}
 }
-
 provider "aws" {
   region              = "us-west-2"
 }
@@ -21,7 +19,7 @@ EOF
 }
 
 
-
+# Remote backend settings for all child directories
 remote_state {
   backend = "s3"
   config = {

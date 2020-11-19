@@ -1,3 +1,4 @@
+# Generate provider configuration for all child directories
 generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite"
@@ -8,18 +9,17 @@ terraform {
       source  = "hashicorp/aws"
       version = "3.7"
     }
-    
   }
-
   backend "s3" {}
 }
 
 provider "aws" {
-  region              = "${local.env_vars.region}"
+  region              = "${local.env_vars.region}" # Local variable from environment_vars.yaml
 }
 EOF
 }
 
+# Remote backend settings for all child directories
 remote_state {
   backend = "s3"
   config = {
@@ -31,6 +31,7 @@ remote_state {
   }
 }
 
+# Collect values from environment_vars.yaml and set as local variables
 locals {
   env_vars = yamldecode(file("environment_vars.yaml"))
 

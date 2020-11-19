@@ -1,9 +1,9 @@
-# Define dependencies on other states
+# Define dependencies on other modules
 dependency "vpc" {
   config_path = "../vpc"
 }
 
-# Pass data in from another dependency
+# Pass data in from a declared dependency
 inputs = {
   vpc_id = dependency.vpc.outputs.vpc_id
 }

@@ -1,3 +1,4 @@
+# Remote backend settings for all child directories
 remote_state {
   backend = "s3"
   config = {
