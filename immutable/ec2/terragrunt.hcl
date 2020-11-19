@@ -14,12 +14,12 @@ dependency "network" {
 
 # Pass data in from another dependency
 inputs = {
-  name = local.servername
+  name = local.env_vars.servername
   vpc_sg = dependency.vpc.outputs.vpc_sg
   subnet_id = dependency.network.outputs.subnet_id
-  num_nodes = local.nodes
+  num_nodes = local.env_vars.nodes
   tags = {
-      Environment = local.environment
+      Environment = local.env_vars.environment
   }
 
 }
@@ -30,5 +30,5 @@ include {
 }
 
 locals {
-  common_vars = yamldecode(file(find_in_parent_folders("common_vars.yaml")))
+  env_vars = yamldecode(file(find_in_parent_folders("environment_vars.yaml")))
 }

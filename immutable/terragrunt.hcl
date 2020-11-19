@@ -15,12 +15,10 @@ terraform {
 }
 
 provider "aws" {
-  region              = local.region
+  region              = "${local.env_vars.region}"
 }
 EOF
 }
-
-
 
 remote_state {
   backend = "s3"
@@ -34,5 +32,6 @@ remote_state {
 }
 
 locals {
-  common_vars = yamldecode(file(".\common_vars.yaml"))
+  env_vars = yamldecode(file("environment_vars.yaml"))
+
 }

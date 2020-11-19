@@ -10,11 +10,11 @@ dependency "vpc" {
 
 # Pass data in from another dependency
 inputs = {
-  cidr_block = local.subnet_cidr
-  availability_zone = local.availability_zone
+  cidr_block = local.env_vars.subnet_cidr
+  availability_zone = local.env_vars.availability_zone
   vpc_id = dependency.vpc.outputs.vpc_id
   tags = {
-      Environment = local.environment
+      Environment = local.env_vars.environment
   }
 }
 
@@ -24,5 +24,5 @@ include {
 }
 
 locals {
-  common_vars = yamldecode(file(find_in_parent_folders("common_vars.yaml")))
+  env_vars = yamldecode(file(find_in_parent_folders("environment_vars.yaml")))
 }

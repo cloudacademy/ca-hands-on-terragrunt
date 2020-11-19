@@ -4,9 +4,9 @@ terraform {
 }
 
 inputs = {
-  cidr_block = local.vpc_cidr
+  cidr_block = local.env_vars.vpc_cidr
   tags = {
-      Environment = local.environment
+      Environment = local.env_vars.environment
   }
 }
 
@@ -17,5 +17,5 @@ include {
 
 
 locals {
-  common_vars = yamldecode(file(find_in_parent_folders("common_vars.yaml")))
+  env_vars = yamldecode(file(find_in_parent_folders("environment_vars.yaml")))
 }
