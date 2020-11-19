@@ -34,5 +34,5 @@ remote_state {
 }
 
 locals {
-  common_vars = yamldecode(file("common_vars.yaml"))
+  common_vars = yamldecode(file(".\common_vars.yaml"))
 }
