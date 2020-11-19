@@ -1,6 +1,7 @@
 terraform {
   # Deploy version v0.0.1 in prod
-  source = "git::git@github.com:cloudacademy/terraform-aws-calabmodules.git//vpc?ref=v0.0.1"
+  source = "git::github.com/cloudacademy/terraform-aws-calabmodules.git//vpc?ref=v0.0.1"
+
 }
 
 inputs = {
