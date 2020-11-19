@@ -1,6 +1,6 @@
 terraform {
   # Deploy version v0.0.1 in prod
-  source = "../modules/ec2"
+  source = "git::git@github.com:cloudacademy/terraform-aws-calabmodules.git//ec2?ref=v0.0.1"
 }
 
 # Define dependencies on other states with multiple dependency blocks
