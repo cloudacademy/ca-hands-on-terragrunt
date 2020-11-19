@@ -3,12 +3,6 @@ terraform {
   source = "../modules/ec2"
 }
 
-inputs = {
-  instance_count = 10
-  instance_type  = "m2.large"
-}
-
-
 # Define dependencies on other states with multiple dependency blocks
 dependency "vpc" {
   config_path = "../vpc"
