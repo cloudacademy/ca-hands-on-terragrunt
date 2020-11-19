@@ -23,5 +23,10 @@ resource "aws_instance" "server" {
   subnet_id = var.subnet_id
   vpc_security_group_ids = [var.vpc_sg]
 
-  tags = var.tags 
+  tags = merge(
+    {
+      "Name" = "${var.name}${count.index}"
+    },
+    var.tags,
+  ) 
 }

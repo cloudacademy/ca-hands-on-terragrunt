@@ -24,3 +24,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "name" {
+    description = "Name of the servers"
+    type = string
+}
