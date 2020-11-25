@@ -1,6 +1,6 @@
 # Use remote module for configuration
 terraform {
-  source = "git::github.com/cloudacademy/terraform-aws-calabmodules.git//ec2?ref=v0.0.1"
+  source = "git::github.com/cloudacademy/terraform-aws-calabmodules.git//ec2?ref=v0.0.2"
 }
 
 # Pass data into remote module with inputs
